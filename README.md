@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Apni Library
+
+A modern, premium website for **Apni Library** — a competitive-exam reading room in Ballia, Uttar Pradesh, owned and run by **Amit Nishad**. Built to showcase the library's facilities, a full photo gallery, membership plans, and to attract students preparing for UPSC, SSC, Banking, Railway, NEET, JEE, CUET, and university exams.
+
+## Tech Stack
+
+- [Next.js 15](https://nextjs.org) (App Router)
+- React 19 + TypeScript
+- Tailwind CSS v4
+- Framer Motion
+- Lucide React Icons
+- next-themes (dark/light mode)
+- `next/image` for optimized images
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and run the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build for production:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/                  Routes, layout, metadata, sitemap/robots
+components/
+  layout/             Navbar, Footer
+  home/               Hero, Stats, About, Facilities, Membership, Testimonials
+  gallery/             Gallery (filters + lightbox)
+  contact/             Contact form, map, FAQ
+  shared/             Reveal animation, section heading, theme toggle, social icons
+data/site.ts          Single source of truth for all site content (name, address,
+                       phone, pricing, gallery images, testimonials, FAQs, etc.)
+hooks/                 Custom hooks (animated counters)
+lib/utils.ts           Tailwind class-merging helper
+types/                 Shared TypeScript types
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Editing Content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Almost everything you'd want to change day-to-day — phone number, WhatsApp
+number, address, membership prices, gallery images, testimonials, FAQs — lives
+in **`data/site.ts`**. Edit that one file rather than hunting through
+components.
 
-## Deploy on Vercel
+Things to update before going live:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [ ] Real phone number, WhatsApp number, and email in `data/site.ts`
+- [ ] Real Google Maps embed URL (`mapsEmbedSrc`) for the exact location
+- [ ] Real photos in `public/images/` in place of the `picsum.photos`
+      placeholders used throughout `data/site.ts`
+- [ ] Confirm seat counts, shift timings, and membership pricing are accurate
+- [ ] Wire the contact form (`components/contact/contact.tsx`) to a real
+      backend — e.g. [Formspree](https://formspree.io), a Next.js API route,
+      or an email service — it currently only simulates a submission
+- [ ] Set the production domain in `app/layout.tsx` (`metadataBase`) and
+      `app/sitemap.ts` / `app/robots.ts` (currently `apnilibrary.in`)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+This project deploys cleanly on [Vercel](https://vercel.com):
+
+1. Push this repo to GitHub
+2. Go to Vercel → **Add New Project** → import the repo
+3. Vercel auto-detects Next.js — no extra config needed
+4. Every push to `main` redeploys automatically; other branches get preview URLs
+
+## License
+
+Private project for Apni Library, Ballia, Uttar Pradesh.
