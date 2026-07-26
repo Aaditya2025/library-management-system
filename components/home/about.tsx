@@ -8,35 +8,35 @@ const pillars = [
   {
     icon: Target,
     title: "Our Mission",
-    text: `To give every serious aspirant in ${site.city} a seat, a silence, and a schedule — the three things a self-study rented room rarely offers.`,
+    text: `To give every serious aspirant in ${site.city} a seat, a silence, and a good environment — the things a self-study rented room rarely offers.`,
   },
   {
     icon: Compass,
     title: "Our Vision",
-    text: `To be the first name a family in ${site.city} thinks of when a child begins preparing for UPSC, SSC, Banking, Railway, NEET, JEE or CUET.`,
+    text: "To reach village students who otherwise get far fewer opportunities — bringing serious exam preparation within reach, not just to those who can afford city coaching.",
   },
   {
     icon: Users,
     title: "Why Choose Us",
-    text: "Fixed seats, four honest shifts, real power backup, and a founder who is on-site — not a franchise run from another city.",
+    text: `Proper guidance in every field, directly from the founder ${site.ownerName} — not a franchise run from another city, and not a seat rented out with no support.`,
   },
 ];
 
 export function About() {
   return (
-    <section id="about" className="bg-background py-24">
+    <section id="about" className="bg-background py-14 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="About the library"
-          title={`A study room built for ${site.city}'s toughest exam years`}
-          description={`${site.name} was started by ${site.ownerName} in ${site.founded} as a single reading hall on Station Road. It has since grown into a full-day study space that aspirants from across the district rely on.`}
+          title={`A study hall built for ${site.city}'s toughest exam years`}
+          description={`${site.name} was started by ${site.ownerName} in ${site.founded} as a reading hall on NH31, known for its good study environment and honest guidance. It has since grown into a full-day study space that aspirants from across the district rely on.`}
         />
 
         <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-lg">
               <Image
-                src="https://picsum.photos/seed/apni-about/1200/1000"
+                src="/images/amit-nishad-profile.png"
                 alt={`Students studying inside ${site.name}, ${site.city}`}
                 width={1200}
                 height={1000}
@@ -55,8 +55,8 @@ export function About() {
                 Most students preparing for a competitive exam in a small district town face the same three
                 problems: a home too full of interruptions, a cyber-café too noisy for concentration, and a
                 city library that closes long before a Railway or Banking aspirant&apos;s revision hours end.
-                {" "}{site.name} was opened to solve exactly that — a quiet, secured room open across four
-                shifts, from 5:30 in the morning to 5:30 the next morning.
+                {" "}{site.name} was opened to solve exactly that — a quiet, secured hall open across three
+                daily shifts, from 8 in the morning to 10 at night.
               </p>
             </Reveal>
 

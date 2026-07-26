@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 export function Membership() {
   return (
-    <section id="membership" className="bg-primary-tint/50 py-24">
+    <section id="membership" className="bg-primary-tint/50 py-14 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Membership"

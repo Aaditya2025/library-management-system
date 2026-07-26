@@ -5,7 +5,7 @@ import { FacebookIcon, InstagramIcon, YoutubeIcon } from "@/components/shared/so
 export function Footer() {
   return (
     <footer className="border-t border-border bg-primary-dark text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <a href="#home" className="flex items-center gap-2.5">
@@ -18,7 +18,7 @@ export function Footer() {
               {site.description}
             </p>
             <p className="mt-4 font-mono text-xs uppercase tracking-widest text-white/50">
-              Founded {site.founded} by {site.ownerName}
+              Founded {site.foundedDate} by {site.ownerName}
             </p>
           </div>
 

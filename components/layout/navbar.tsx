@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { BookMarked, Menu, Phone, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { navLinks, site } from "@/data/site";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { cn } from "@/lib/utils";
@@ -41,13 +42,25 @@ export function Navbar() {
               : "border-transparent bg-transparent"
           )}
         >
-          <a href="#home" className="flex items-center gap-2.5">
-            <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-white">
-              <BookMarked className="size-5" />
+          <a href="#home" className="flex min-w-0 flex-1 items-center gap-2 sm:gap-2.5">
+            <span className="relative flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-xl sm:size-10">
+              <Image
+                src="/images/apniLibrary-logo.png"
+                alt={`${site.name} logo`}
+                fill
+                sizes="40px"
+                className="object-contain"
+                priority
+              />
             </span>
-            <span className="font-display text-lg font-semibold leading-none text-foreground">
+            <span
+              className={cn(
+                "min-w-0 truncate font-display text-base font-bold leading-none sm:text-lg transition-colors duration-300",
+                scrolled ? "text-[#38649e]" : "text-white"
+              )}
+            >
               {site.name}
-              <span className="block font-mono text-[10px] font-normal uppercase tracking-[0.2em] text-muted">
+              <span className="mt-[5px] block truncate font-mono text-[9px] font-normal uppercase tracking-[0.15em] text-[#38649e] sm:text-[10px] sm:tracking-[0.2em]">
                 {site.city}, {site.state}
               </span>
             </span>
@@ -76,14 +89,14 @@ export function Navbar() {
             </a>
           </div>
 
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
             <ThemeToggle />
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
-              className="flex size-9 items-center justify-center rounded-full border border-border bg-surface text-foreground"
+              className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-surface text-foreground"
             >
               {open ? <X className="size-4" /> : <Menu className="size-4" />}
             </button>

@@ -21,7 +21,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-primary-tint/50 py-24">
+    <section id="contact" className="bg-primary-tint/50 py-14 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Contact"
@@ -70,6 +70,14 @@ export function Contact() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
+                <a
+                  href={site.mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 border-t border-border bg-surface py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary-tint"
+                >
+                  <MapPin className="size-4" /> Get Directions on Google Maps
+                </a>
               </div>
 
               <div className="rounded-3xl border border-border bg-surface p-6 shadow-sm">
